@@ -111,27 +111,162 @@ public class PracticeService {
 		int count = 0;
 		
 		for (int i = 0; i < arr.length; i++) {
+			
 			arr[i] = input.charAt(i);
 			
-		}
-
-		for (int x = 0; x < arr.length; x++) {
-			
-			if (arr[x] == search) {
-				System.out.printf("%s에 %s가 존재하는 위치(인덱스) : \n", input, search);
+			if (arr[i] == search) {
+				
+				count++;
 				
 			}
-			if (arr[x] == search) {
-				count++;
-				System.out.print(x +" ");
-
-			}
-			
-
 		}
+		System.out.printf("%s에 %s가 존재하는 위치(인덱스) : ", input, search);
+		
+		for (int x = 0; x < arr.length; x++) {
+			
+			
+				for (int y = 0; y < count; y ++) {
+					if (arr[x] == search) {
+						System.out.print(x + " ");
+						break;
+				}
+				
+				
+				
+			}
+		}
+			
+		
 		System.out.println();
 		System.out.printf("%s 개수: %d", search, count);
 
 		
 	}
+	
+	public void practice6() {
+		System.out.print("정수 : ");
+		int input = sc.nextInt();
+		
+		int[] arr = new int[input];
+		
+		int sum = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			System.out.printf("배열 %d번째 인덱스에 넣을 값 : ", i);
+			arr[i] = sc.nextInt();
+			
+			sum += arr[i];
+		}
+		System.out.print(Arrays.toString(arr));
+		System.out.println();
+		System.out.printf("총 합 : %d", sum);
+		
+	}
+	
+	public void practice7() {
+		System.out.print("주민등록번호(-포함) : ");
+		String input = sc.next();
+		
+		char[] arr = new char[input.length()];
+				
+		
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = input.charAt(i);
+			
+			if (i > 7) {
+				arr[i] = '*';
+			}
+			System.out.print(arr[i]);
+		}
+		
+	}
+	
+	public void practice8() {
+		
+		
+		int input;
+		
+		do {
+		
+			System.out.print("정수 : ");
+			input = sc.nextInt();
+		
+			if (input < 3 || input % 2 != 1) {
+			System.out.println("다시 입력하세요.");
+			}
+		} while (input  < 3 || input % 2 != 1);
+		
+		int[] arr = new int[input];
+		
+		int count = 1;
+
+		
+		if (input >= 3 && input % 2 == 1) { // input 데이터가 3이상이고 홀수일때
+			for (int i = 0; i < arr.length; i++) { // i증가값이 0~ arr길이까지 증가반복할때
+				if (i >= 0 && i <= input /2) { // i가 0보다 크면서 인풋값 절반까지는 
+					arr[i] = i + 1; // arr[i] 값은 1씩 증가하는 i값
+				} else if (i > input /2 && i < input){ // i가 인풋절반값보다 크면서 인풋보다 작을때
+					arr[i] = arr[input / 2 ] - count;
+					count++;
+				}
+			}
+			
+		} 
+		
+		System.out.println(Arrays.toString(arr));
+			
+	}
+	
+	
+	public void practice9() {
+		int[] arr = new int[10];
+		
+		
+		
+		for (int i = 0; i < arr.length; i++) {
+			int random = (int) (Math.random() * 10 + 1 );
+			arr[i] = random;
+		}
+		
+		System.out.println("발생한 난수 : " + Arrays.toString(arr));
+	}
+	
+	
+	public void practice10() {
+		int [] arr = new int[10];
+		
+		
+		
+		for (int i = 0; i < arr.length; i++) {
+			int random = (int) (Math.random() * 10 + 1 );
+			arr[i] = random;
+		}
+		
+		
+		int max = arr[0];
+		
+		int min = arr[0];
+		
+		
+		for (int x = 1; x < arr.length; x++) {
+			if (arr[x] > max) {
+				max = arr[x];
+				
+			}
+			if (arr[x] < min) {
+				min = arr[x];
+				
+			}
+		}
+		
+		System.out.println("발생한 난수 : " + Arrays.toString(arr));
+		System.out.println("최대값 : " + max);
+		System.out.println("최소값 : " + min);
+		
+	}
+	
+	public void practice11() {
+		
+	}
+	
 }
